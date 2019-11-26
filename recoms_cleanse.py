@@ -154,7 +154,7 @@ df['segmentation'] = df['segmentation'].map(segmentation)
 
 
 # Export to a CSV
-df.to_csv('data/santander_cust_products_clean.csv')
+df.to_csv('data/santander_cust_products_clean.csv', index=False)
 
 
 

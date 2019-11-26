@@ -12,7 +12,7 @@ import numpy as np
 
 # Create list of product types to be made into nodes
 
-df = pd.read_csv(r"C:\Users\shaom\Desktop\neo4j\santander_recom\santander_cust_products_clean_sample.csv")
+df = pd.read_csv("data/santander_cust_products_clean_sample.csv")
 
 prod_cols = (list(df.columns))[23:]
 
@@ -22,25 +22,56 @@ prod_types = pd.DataFrame({'prod_id': list(range(1,24)),
 prod_types.to_csv("santander_products.csv", index=False)
 
 
+
 # Create the CSVs mapping customer IDs with lists of products they bought to be made into edges
 
-df = pd.read_csv(r"C:\Users\shaom\Desktop\neo4j\santander_recom\santander_cust_products_clean_50k.csv")
+df = pd.read_csv("data/santander_cust_products_clean_50k.csv")
+#df = pd.read_csv("data/santander_cust_products_clean_100k.csv")
 
 prod_cols = (list(df.columns))[23:]
 
 prod_df = df[['cust_id']+prod_cols]
 
 for col in prod_df[prod_cols]:
-    prod_df[col] = prod_df[col].map({1:col,0:np.nan})
+    prod_df[col] = prod_df[col].map({1:col,0:None})
     
-prod_df['product_type'] = str(prod_df[prod_cols].values.tolist())
+prod_df['product_type'] = prod_df[prod_cols].values.tolist()
 
-for x in prod_df['product_type']:
-    x = x[1:-1]
+prod_df = prod_df[['cust_id','product_type']]
 
 
-prod_df_final = prod_df[['cust_id','product_type']]
+def convert_to_concat(input_list):
+    string = ""
+    for prod_type in input_list:
+        if prod_type is not None:
+            if string == "":
+                string += str(prod_type)
+            else:
+                string += ";" + str(prod_type)
+    return string
 
-prod_df_final.to_csv(r"C:\Users\shaom\Desktop\neo4j\santander_recom\santander_cust_products_rels_50k.csv",index=False)
 
-test = prod_df.head()
+prod_df['product_type'] = prod_df['product_type'].apply(lambda x: convert_to_concat(x))
+    
+cust_products = prod_df.replace(r'^\s*$', np.nan, regex=True)
+    
+
+cust_products.to_csv("data/cust_prod_rels.csv", index=False)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
