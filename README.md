@@ -10,6 +10,8 @@
 	* Converted categorical column contents to full descriptions
 	* Converted Y/N (or rather si or no) columns to 1s and 0s
 3) Data prep for graph db import done in Python - see graphdb_prep.py
+	* Extracted out the product types into its own CSV for easier node creation later
+	* Extracted out customer IDs and a string of their products for easier edge creation later
 4) Created nodes and edges/relationships in Neo4j using Python py2neo library in iPython notebook to be able to embed images for user viewing but could be converted to a Python file to be executable
 
 
