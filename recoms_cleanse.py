@@ -2,7 +2,7 @@
 """
 Cleaning the Spanish Santander dataset
 Author: Mei Yong
-https://github.com/mei-yong/neo4j_recoms/
+https://github.com/mei-yong/bank_product_recommendations
 
 """
 
