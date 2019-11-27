@@ -1,4 +1,4 @@
-cust_id,product_type
+cust_id,products
 1184621,current_account
 136560,current_account;payroll_account;individual_account;longterm_deposit;eaccount;funds;payroll;pensions
 341825,payroll_account;longterm_deposit;eaccount;taxes;pensions;direct_debit
