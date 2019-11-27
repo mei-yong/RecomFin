@@ -1,4 +1,4 @@
-# Santander bank product recommendation model in a graph database - using Python & Neo4j
+# Santander bank product recommendation model in a graph database using Python & Neo4j
 
 ### Method
 1) Spanish data downloaded from Kaggle
