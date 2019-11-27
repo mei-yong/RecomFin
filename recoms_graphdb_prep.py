@@ -17,7 +17,7 @@ df = pd.read_csv("data/santander_cust_products_clean_sample.csv")
 prod_cols = (list(df.columns))[23:]
 
 prod_types = pd.DataFrame({'prod_id': list(range(1,24)),
-                           'product_type': prod_cols})
+                           'products': prod_cols})
 
 prod_types.to_csv("santander_products.csv", index=False)
 
@@ -35,9 +35,9 @@ prod_df = df[['cust_id']+prod_cols]
 for col in prod_df[prod_cols]:
     prod_df[col] = prod_df[col].map({1:col,0:None})
     
-prod_df['product_type'] = prod_df[prod_cols].values.tolist()
+prod_df['products'] = prod_df[prod_cols].values.tolist()
 
-prod_df = prod_df[['cust_id','product_type']]
+prod_df = prod_df[['cust_id','products']]
 
 
 def convert_to_concat(input_list):
@@ -51,7 +51,7 @@ def convert_to_concat(input_list):
     return string
 
 
-prod_df['product_type'] = prod_df['product_type'].apply(lambda x: convert_to_concat(x))
+prod_df['products'] = prod_df['products'].apply(lambda x: convert_to_concat(x))
     
 cust_products = prod_df.replace(r'^\s*$', np.nan, regex=True)
     
