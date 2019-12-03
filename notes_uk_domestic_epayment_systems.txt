@@ -1,0 +1,39 @@
+
+UK Domestic Electronic Payment Systems
+https://www.bankingcircle.com/understanding-electronic-payment-systems-in-the-uk-037966
+
+BACS
+* High volumn, regular value transactions (e.g. salaries, utility bills, benefits, subscriptions)
+* No payment cost for individuals, small cost per transac for businesses
+* Takes 3 days to complete
+* Can be cancelled up until midday of the 2nd day in the 3-day cycle
+* Most payments need to be submitted before 17:00 or else the 3-day cycle starts the next day
+* When payments are done via banks, there are fees for file processing and charges for errors in said files
+
+CHAPS (Clearing House Automated Payment System)
+* Same-day clearing for high value transactions
+* Charge up to £35 per transactions
+* Cannot revoke
+* Guaranteed same-day if instructions are received weekdays before 14:00
+* Not available as a payment method at all banks
+
+Faster Payments
+* High volume, low value transactions
+* No fees for individuals
+* Can be online, in branch, by phone
+* Can also be used for standing orders, bill payments, forward payments
+* Payment cap at £250k - most financial institutions enforce a lower cap
+* 24/7
+* Higher cost per transaction for businesses
+* If bank doesn't have Faster Payments, reverts to BACS
+
+
+
+
+
+
+
+
+
+
+
